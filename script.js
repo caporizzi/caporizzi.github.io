@@ -1,11 +1,19 @@
 document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-  
-  const email = document.getElementById('email').value;
+
+  const firstName = document.getElementById('first-name').value.trim();
+  const lastName = document.getElementById('last-name').value.trim();
+  const email = document.getElementById('email').value.trim();
   const msg = document.getElementById('response-msg');
 
-  const airtableToken = "patlcwCc8KxyK0uXY.96800c647ca223c8b68fc7547d4cc251d826051166c77563f5fa7a2717854ecc"; // ⚠️ Don't expose this in production
-  const baseId = "appQtHIvxTBmIUkoo";
+  if (!firstName || !lastName || !email) {
+    msg.textContent = "⚠️ Please fill in all fields.";
+    msg.style.color = "orange";
+    return;
+  }
+
+  const airtableToken = "YOUR_AIRTABLE_TOKEN"; // ⚠️ For testing only
+  const baseId = "YOUR_BASE_ID";
   const tableName = "Waitlist";
 
   try {
@@ -16,15 +24,22 @@ document.getElementById('waitlist-form').addEventListener('submit', async functi
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        records: [{ fields: { Email: email } }]
+        records: [{
+          fields: {
+            "First Name": firstName,
+            "Last Name": lastName,
+            "Email": email
+          }
+        }]
       })
     });
 
     if (response.ok) {
       msg.textContent = "✅ You're on the waitlist!";
       msg.style.color = "green";
+      document.getElementById('waitlist-form').reset();
     } else {
-      msg.textContent = "❌ Something went wrong. Try again.";
+      msg.textContent = "❌ Error saving to Airtable.";
       msg.style.color = "red";
     }
   } catch (err) {
