@@ -12,8 +12,8 @@ document.getElementById('waitlist-form').addEventListener('submit', async functi
     return;
   }
 
-  const airtableToken = "YOUR_AIRTABLE_TOKEN"; // ⚠️ For testing only
-  const baseId = "YOUR_BASE_ID";
+  const airtableToken = "patlcwCc8KxyK0uXY.96800c647ca223c8b68fc7547d4cc251d826051166c77563f5fa7a2717854ecc"; // ⚠️ For testing only
+  const baseId = "appQtHIvxTBmIUkoo";
   const tableName = "Waitlist";
 
   try {
