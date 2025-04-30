@@ -1,6 +1,30 @@
-body{
-  padding: 25px;
+body {
+  background-color: #fdf6e3;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
-.title {
-	color: #5C6AC4;
+
+.container {
+  padding: 50px 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ba9f33;
+  margin-bottom: 20px;
+}
+
+.doge-logo {
+  width: 150px;
+  height: auto;
+  margin: 20px 0;
+}
+
+.coming-soon {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #777;
 }
