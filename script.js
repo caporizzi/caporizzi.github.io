@@ -35,9 +35,7 @@ try {
     });
 
     if (response.ok) {
-      msg.textContent = "✅ You're on the waitlist!";
-      msg.style.color = "green";
-      document.getElementById('waitlist-form').reset();
+      window.location.href = "thankyou.html";
     } else {
       msg.textContent = "❌ Error saving to Airtable.";
       msg.style.color = "red";
